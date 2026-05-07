@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Case For Running | A Civic Investment in Public Health</title>
+    <meta name="description" content="Explore the data-backed economic and public health benefits of running events. A resource for civic leaders, race directors, and communities.">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Space+Grotesk:wght@500;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+    
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "How do running events benefit the local economy?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Running events drive the visitor economy by increasing hotel occupancy, boosting local hospitality spend, and generating civic pride. For example, regional marathons regularly generate tens of millions in direct economic impact through the 'entourage effect', where each runner brings non-running supporters who spend locally."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Do running events reduce healthcare costs?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Physical inactivity accounts for roughly 4.5% of direct national healthcare expenditures. By transitioning citizens from sedentary lifestyles to active ones, running events act as preventative healthcare infrastructure, significantly reducing long-term medical burdens."
+        }
+      }, {
+        "@type": "Question",
+        "name": "Why should city councils support road closures for marathons?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Temporarily closing roads for running events transforms public infrastructure into active health clinics. It encourages community-wide physical activity, inspires the next generation, and creates a net-positive economic impact that far outweighs the temporary traffic adjustments."
+        }
+      }]
+    }
+    </script>
+
+    <style>
+        :root {
+            --bg: #0f172a;        /* slate-900 */
+            --text: #f1f5f9;      /* slate-100 */
+            --muted: #94a3b8;     /* slate-400 */
+            --accent: #D4FF00;    /* Neon Volt */
+            --border: #1e293b;    /* slate-800 */
+            --card: rgba(30, 41, 59, 0.4); 
+        }
+        
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        h1, h2, h3, h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            margin: 0;
+        }
+        
+        .data-font {
+            font-family: 'JetBrains Mono', monospace;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 24px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        header {
+            padding: 40px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: -0.5px;
+            color: var(--text);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Hero Section with CSS Track Lines */
+        .hero-wrapper {
+            position: relative;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 1000 1000' xmlns='http://www.w3.org/2000/svg'%3E%3Cg stroke='rgba(255,255,255,0.04)' stroke-width='4' fill='none'%3E%3Cpath d='M-200 1000 Q 500 1000 500 0'/%3E%3Cpath d='M-160 1000 Q 540 1000 540 0'/%3E%3Cpath d='M-120 1000 Q 580 1000 580 0'/%3E%3Cpath d='M-80 1000 Q 620 1000 620 0'/%3E%3C/g%3E%3C/svg%3E");
+            background-position: top right;
+            background-repeat: no-repeat;
+            background-size: 800px;
+        }
+
+        .hero {
+            padding: 80px 0 100px 0;
+        }
+        
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4.5rem);
+            line-height: 1.05;
+            letter-spacing: -1.5px;
+            margin-bottom: 24px;
+        }
+        
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--muted);
+            max-width: 750px;
+        }
+        
+        .section-title {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent);
+            margin-bottom: 40px;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            font-weight: 700;
+        }
+        
+        .section-title::after {
+            content: "";
+            height: 1px;
+            background: var(--border);
+            flex-grow: 1;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 24px;
+            margin-bottom: 80px;
+        }
+        
+        @media (min-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .col-span-2 {
+                grid-column: span 2;
+            }
+        }
+        
+        .stat-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+        
+        .stat-card:hover {
+            border-color: var(--muted);
+            transform: translateY(-2px);
+        }
+        
+        .stat-value {
+            font-size: 3.5rem;
+            color: var(--accent);
+            margin-bottom: 16px;
+            line-height: 1;
+            letter-spacing: -2px;
+        }
+        
+        .stat-label {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .stat-desc {
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        /* Tooltip Citations */
+        .citation {
+            position: relative;
+            display: inline-block;
+            cursor: help;
+        }
+
+        .citation sup {
+            color: var(--accent);
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.6em;
+            margin-left: 2px;
+            top: -0.8em;
+            padding: 2px;
+        }
+
+        .citation-tooltip {
+            position: absolute;
+            bottom: 150%;
+            left: 50%;
+            transform: translateX(-50%) translateY(10px);
+            opacity: 0;
+            pointer-events: none;
+            background: var(--bg);
+            border: 1px solid var(--accent);
+            padding: 16px;
+            border-radius: 8px;
+            width: max-content;
+            max-width: 320px;
+            z-index: 100;
+            font-size: 0.85rem;
+            color: var(--text);
+            line-height: 1.4;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+
+        .citation:hover .citation-tooltip {
+            opacity: 1;
+            pointer-events: auto;
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* Pull Quote */
+        .pull-quote {
+            margin: 0 0 80px 0;
+            padding: 40px;
+            border-left: 4px solid var(--accent);
+            background: linear-gradient(90deg, rgba(212, 255, 0, 0.05) 0%, rgba(15, 23, 42, 0) 100%);
+        }
+
+        .pull-quote h3 {
+            font-size: 1.5rem;
+            line-height: 1.4;
+            color: var(--text);
+            font-weight: 500;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .pull-quote p {
+            color: var(--muted);
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* FAQ Section Styles */
+        .faq-container {
+            margin-bottom: 80px;
+        }
+
+        details {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            margin-bottom: 16px;
+            overflow: hidden;
+            transition: border-color 0.2s ease;
+        }
+
+        details:hover {
+            border-color: var(--muted);
+        }
+
+        summary {
+            padding: 24px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        summary::-webkit-details-marker {
+            display: none;
+        }
+
+        summary::after {
+            content: '+';
+            color: var(--accent);
+            font-size: 1.5rem;
+            font-weight: 400;
+            transition: transform 0.2s ease;
+        }
+
+        details[open] summary::after {
+            transform: rotate(45deg);
+        }
+
+        .faq-content {
+            padding: 0 24px 24px 24px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.6;
+        }
+
+        /* --- CITATIONS / FOOTNOTES STYLE --- */
+        /* This is the crucial fix to ban default blue */
+        
+        .footnotes {
+            margin-bottom: 80px;
+            padding: 40px;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+        }
+        
+        .footnotes h3 {
+            font-size: 1rem;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+
+        .footnotes ol {
+            color: var(--muted);
+            font-size: 0.875rem;
+            padding-left: 20px;
+            margin: 0;
+        }
+        
+        .footnotes li {
+            margin-bottom: 12px;
+        }
+
+        /* Idle State: No default blue */
+        .footnotes a {
+            color: var(--muted);             /* Makes the link grey like the text */
+            text-decoration: underline;
+            text-decoration-color: var(--border); /* Subtle, dark underline */
+            text-underline-offset: 4px;
+            transition: color 0.2s ease, text-decoration-color 0.2s ease;
+        }
+        
+        /* Hover State: Goes premium white */
+        .footnotes a:hover {
+            color: var(--text);             /* Goes stark white on hover */
+            text-decoration-color: var(--muted); /* Underline becomes visible grey */
+        }
+
+        /* --- UTILITY CTA --- */
+        .utility-cta {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .utility-cta h3 {
+            font-size: 1.5rem;
+            margin-bottom: 8px;
+        }
+
+        .utility-cta p {
+            color: var(--muted);
+            margin-bottom: 24px;
+        }
+
+        .copy-btn {
+            background: var(--accent);
+            color: #000;
+            border: none;
+            padding: 16px 32px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+            background: #bce635;
+            transform: scale(0.98);
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            text-align: center;
+            border-top: 1px solid var(--border);
+            color: var(--muted);
+            font-size: 0.875rem;
+        }
+        
+        .sponsor-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 700;
+            background: var(--card);
+            padding: 8px 16px;
+            border-radius: 20px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+            margin-top: 16px;
+        }
+        
+        .sponsor-link:hover {
+            border-color: var(--accent);
+            background: rgba(212, 255, 0, 0.05);
+        }
+
+        .r-logo {
+            background-color: var(--accent);
+            color: #000;
+            width: 20px;
+            height: 20px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 900;
+            font-style: italic;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="hero-wrapper">
+    <div class="container">
+        <header>
+            <a href="#" class="logo">
+                <span class="status-dot"></span>
+                The Case For Running
+            </a>
+        </header>
+
+        <section class="hero">
+            <h1>Building healthier cities, one finish line at a time.</h1>
+            <p>Civic leaders and event organisers share the same goal: vibrant, economically strong communities. Mass-participation running events are not just races; they are collaborative investments in preventative health infrastructure.</p>
+        </section>
+    </div>
+</div>
+
+<div class="container">
+    <div class="section-title">01. Preventative Health Economics</div>
+    <div class="grid">
+        <div class="stat-card">
+            <div class="stat-value data-font">$2.12</div>
+            <div class="stat-label">The ROI of the Pavement</div>
+            <div class="stat-desc">For every $1 a government or community invests in active recreation infrastructure, they generate <span class="highlight">$2.12 in social and economic return</span> to the wider community through reduced healthcare strain and increased productivity.
+                <span class="citation">
+                    <sup>1</sup>
+                    <span class="citation-tooltip"><strong>Sport New Zealand (2019).</strong><br>"The Value of Sport and Active Recreation to New Zealanders." Social Return on Investment analysis.</span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value data-font">4.5%</div>
+            <div class="stat-label">The Tax of Inactivity</div>
+            <div class="stat-desc">A staggering 4.5% of all direct national healthcare expenditures are linked to physical inactivity. By facilitating events that encourage movement, cities directly combat this rising civic cost.
+                <span class="citation">
+                    <sup>2</sup>
+                    <span class="citation-tooltip"><strong>British Journal of Sports Medicine (2017).</strong><br>"The economic burden of physical inactivity." Global direct healthcare cost analysis.</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pull-quote">
+        <h3>"Running, even 5 to 10 minutes a day and at slow speeds, is associated with markedly reduced risks of death from all causes and cardiovascular disease."</h3>
+        <p>— Journal of the American College of Cardiology</p>
+    </div>
+
+    <div class="section-title">02. Community Wellbeing</div>
+    <div class="grid">
+        <div class="stat-card">
+            <div class="stat-value data-font">-45%</div>
+            <div class="stat-label">Reduction in Heart Disease</div>
+            <div class="stat-desc">Runners have a 45% lower risk of cardiovascular mortality compared to non-runners. And pacing doesn't matter—even slow jogging produces the exact same physiological protection for the average citizen.
+                <span class="citation">
+                    <sup>3</sup>
+                    <span class="citation-tooltip"><strong>Journal of the American College of Cardiology (2014).</strong><br>"Leisure-Time Running Reduces All-Cause and Cardiovascular Mortality Risk."</span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value data-font">+3 Yrs</div>
+            <div class="stat-label">Added Life Expectancy</div>
+            <div class="stat-desc">Consistent runners live, on average, three years longer than non-runners. Organising safe, accessible city races is one of the most statistically significant longevity interventions currently available.
+                <span class="citation">
+                    <sup>3</sup>
+                    <span class="citation-tooltip"><strong>Journal of the American College of Cardiology (2014).</strong><br>"Leisure-Time Running Reduces All-Cause and Cardiovascular Mortality Risk."</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">03. The Visitor Economy</div>
+    <div class="grid">
+        <div class="stat-card">
+            <div class="stat-value data-font">$65.6m</div>
+            <div class="stat-label">The Regional Injection</div>
+            <div class="stat-desc">Running events are engines for the visitor economy. The 2025 Gold Coast Marathon generated a massive <span class="highlight">$65.67 million</span> in direct economic impact, flooding local hospitality and retail precincts with new revenue over a single weekend.
+                <span class="citation">
+                    <sup>4</sup>
+                    <span class="citation-tooltip"><strong>Events Management Queensland (2025).</strong><br>"Gold Coast Marathon Economic Impact Report."</span>
+                </span>
+            </div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-value data-font">1:2</div>
+            <div class="stat-label">The Multiplier Effect</div>
+            <div class="stat-desc">Every runner imports a wider entourage. For example, 39,000 registered runners translated to over <span class="highlight">76,500 total visitors</span> at the Gold Coast. This means supporters are actively spending money in local civic centres while waiting at the finish line.
+                <span class="citation">
+                    <sup>4</sup>
+                    <span class="citation-tooltip"><strong>Events Management Queensland (2025).</strong><br>"Gold Coast Marathon Economic Impact Report."</span>
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="section-title">04. The Civic Dividend</div>
+    <div class="grid">
+        <div class="stat-card col-span-2">
+            <div class="stat-label">The Collaborative Value of Public Space</div>
+            <div class="stat-desc">When cities and event organisers collaborate to streamline infrastructure and permitting, they create a powerful catalyst for public health. <span class="highlight">Temporarily closing roads for a marathon is not a disruption to city traffic; it is a temporary transformation of public space into a community health clinic.</span> It drives thousands of tourists into the local visitor economy, fills hotel rooms, and most importantly, creates a culture where local youth see physical fitness normalised in their own streets.</div>
+        </div>
+    </div>
+
+    <div class="section-title">05. Frequently Asked Questions</div>
+    <div class="faq-container">
+        <details>
+            <summary>How do running events benefit the local economy?</summary>
+            <div class="faq-content">
+                Running events are major drivers of the visitor economy. Large-scale races bring in thousands of out-of-town participants who book hotels, dine at local restaurants, and shop at local businesses. Beyond the weekend revenue, these events showcase the city's infrastructure and culture to a wider audience, encouraging repeat tourism.
+            </div>
+        </details>
+
+        <details>
+            <summary>Do running events actually reduce healthcare costs?</summary>
+            <div class="faq-content">
+                Yes. Non-communicable diseases (like heart disease and type 2 diabetes) driven by physical inactivity place a massive burden on civic and national healthcare budgets. Training for a running event transitions citizens from sedentary to active lifestyles. This preventative care keeps people out of hospital beds, directly saving the healthcare system money.
+            </div>
+        </details>
+
+        <details>
+            <summary>How can cities and councils support local running events?</summary>
+            <div class="faq-content">
+                Cities can partner with event directors by streamlining the permitting processes, subsidising traffic management and road closure costs, and integrating the race into the city's broader public health and tourism strategies. Viewing these events as public health initiatives rather than commercial ventures aligns the goals of both the city and the organisers.
+            </div>
+        </details>
+    </div>
+
+    <div class="footnotes" id="sources">
+        <h3>Sources & Methodology</h3>
+        <ol>
+            <li><a href="https://sportnz.org.nz/resources/the-value-of-sport/" target="_blank" rel="noopener noreferrer">Sport New Zealand (2019). "The Value of Sport and Active Recreation to New Zealanders."</a> Social Return on Investment analysis.</li>
+            <li><a href="https://bjsm.bmj.com/content/51/19/1392" target="_blank" rel="noopener noreferrer">British Journal of Sports Medicine (2017). "The economic burden of physical inactivity."</a> Global direct healthcare cost analysis.</li>
+            <li><a href="https://www.jacc.org/doi/10.1016/j.jacc.2014.04.058" target="_blank" rel="noopener noreferrer">Journal of the American College of Cardiology (2014). "Leisure-Time Running Reduces All-Cause and Cardiovascular Mortality Risk."</a> 15-year longitudinal study.</li>
+            <li><a href="https://goldcoastmarathon.com.au/2025/08/13/2025-asics-gold-coast-marathon-strides-into-history-books-with-record-tourism-and-economic-impact-figures/" target="_blank" rel="noopener noreferrer">Events Management Queensland (2025). "Gold Coast Marathon Economic Impact Report."</a> Official event data.</li>
+        </ol>
+    </div>
+
+    <div class="utility-cta">
+        <h3>Advocating for a local event?</h3>
+        <p>Send this brief to your city council, local politicians, or sponsors.</p>
+        <button id="copyLinkBtn" class="copy-btn">Copy Link to Share</button>
+    </div>
+
+    <footer>
+        <p>Built as a collaborative resource for civic leaders, race directors, and everyday athletes.</p>
+        <a href="https://runwith.club" target="_blank" class="sponsor-link">
+            Supported by 
+            <span class="r-logo">R</span>
+            Run With Run Club
+        </a>
+    </footer>
+</div>
+
+<script>
+    // Copy Link Functionality
+    document.getElementById('copyLinkBtn').addEventListener('click', function() {
+        const url = window.location.href;
+        navigator.clipboard.writeText(url).then(() => {
+            const btn = document.getElementById('copyLinkBtn');
+            const originalText = btn.innerText;
+            btn.innerText = '✓ Link Copied!';
+            btn.style.background = '#ffffff';
+            
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = 'var(--accent)';
+            }, 2500);
+        }).catch(err => {
+            console.error('Failed to copy: ', err);
+        });
+    });
+</script>
+
+</body>
+</html>
